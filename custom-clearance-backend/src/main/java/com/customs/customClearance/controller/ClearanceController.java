@@ -15,7 +15,7 @@ public class ClearanceController {
 
     private final ClearanceService clearanceService;
 
-    @CrossOrigin(origins = "http://localhost:5174")
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/calculate")
     public double calculateClearance(@RequestParam String age,
                                      @RequestParam String engineType,
