@@ -1,2 +1,15 @@
 server:
   port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  prometheus:
+    metrics:
+       export:
+          enabled: true
+  distribution:
+    percentles-histogram:
+      "[http.server.requests]": true
