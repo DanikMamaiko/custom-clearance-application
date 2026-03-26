@@ -2,7 +2,6 @@ package com.customs.customClearance.controller;
 
 import com.customs.customClearance.service.ClearanceService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +14,6 @@ public class ClearanceController {
 
     private final ClearanceService clearanceService;
 
-    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/calculate")
     public double calculateClearance(@RequestParam String age,
                                      @RequestParam String engineType,

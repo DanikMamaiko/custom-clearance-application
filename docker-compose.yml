@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./custom-clearance-backend
+    restart: unless-stopped
+    networks:
+      - app
+
+  frontend:
+    build: ./cutom-clearance-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - app
+
+networks:
+  app:

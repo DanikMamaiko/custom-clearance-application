@@ -72,7 +72,7 @@ export default function App() {
     const params = new URLSearchParams(payload);
 
     axios
-      .post('http://localhost:8080/rest/api/calculate', params)
+      .post('/rest/api/calculate', params)
       .then((response) => {
         console.log(response);
         setData(response.data);
