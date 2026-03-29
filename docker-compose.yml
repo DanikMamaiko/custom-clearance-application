@@ -9,25 +9,15 @@ services:
 
   frontend:
     build: ./cutom-clearance-frontend
-    ports:
-      - "80:80"
-      - "443:443"
+    container_name: clearance-frontend
     depends_on:
       - backend
     restart: unless-stopped
     networks:
       - app
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-
-  certbot:
-    image: certbot/certbot
-    restart: unless-stopped
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+      - web
 
 networks:
   app:
+  web:
+    external: true
